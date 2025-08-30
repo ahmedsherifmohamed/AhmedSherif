@@ -246,6 +246,134 @@ document.addEventListener("DOMContentLoaded", function () {
     barObserver.observe(bar);
   });
 
+  // Projects Slider Functionality
+  const sliderWrapper = document.querySelector('.slider-wrapper');
+  if (sliderWrapper) {
+    const projectsContainer = sliderWrapper.querySelector('.projects-container');
+    const projectCards = sliderWrapper.querySelectorAll('.project-card');
+    const leftArrow = sliderWrapper.querySelector('.slider-arrow-left');
+    const rightArrow = sliderWrapper.querySelector('.slider-arrow-right');
+    const dots = document.querySelectorAll('.dot');
+    
+    let currentIndex = 0;
+    let projectsPerSlide = 1;
+    let totalSlides = 1;
+
+    // Function to calculate how many projects can fit in the visible area
+    function calculateProjectsPerSlide() {
+      const sliderWidth = sliderWrapper.querySelector('.projects-slider').offsetWidth;
+      const cardWidth = 300; // Minimum card width
+      const gap = 30; // Gap between cards
+      
+      // Calculate how many projects can fit
+      projectsPerSlide = Math.floor((sliderWidth + gap) / (cardWidth + gap));
+      projectsPerSlide = Math.max(1, Math.min(projectsPerSlide, projectCards.length));
+      
+      // Calculate total slides needed
+      totalSlides = Math.ceil(projectCards.length / projectsPerSlide);
+      
+      console.log(`Slider: ${projectsPerSlide} projects per slide, ${totalSlides} total slides`);
+      
+      return { projectsPerSlide, totalSlides };
+    }
+
+    function updateSlider() {
+      // Calculate translation based on current slide and projects per slide
+      const slideWidth = projectsPerSlide * (300 + 30) - 30; // Card width + gap
+      const translateX = -currentIndex * slideWidth;
+      projectsContainer.style.transform = `translateX(${translateX}px)`;
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+        // Hide dots that aren't needed
+        dot.style.display = index < totalSlides ? 'block' : 'none';
+      });
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateSlider();
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlider();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    }
+
+    // Event listeners for arrows
+    if (leftArrow) {
+      leftArrow.addEventListener('click', prevSlide);
+    }
+    
+    if (rightArrow) {
+      rightArrow.addEventListener('click', nextSlide);
+    }
+
+    // Event listeners for dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => goToSlide(index));
+    });
+
+    // Auto-slide functionality
+    let autoSlideInterval = setInterval(nextSlide, 5000);
+
+    // Pause auto-slide on hover
+    sliderWrapper.addEventListener('mouseenter', () => {
+      clearInterval(autoSlideInterval);
+    });
+
+    sliderWrapper.addEventListener('mouseleave', () => {
+      autoSlideInterval = setInterval(nextSlide, 5000);
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        prevSlide();
+      } else if (e.key === 'ArrowRight') {
+        nextSlide();
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let startX = 0;
+    let endX = 0;
+
+    sliderWrapper.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+
+    sliderWrapper.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+      
+      if (Math.abs(diff) > 50) { // Minimum swipe distance
+        if (diff > 0) {
+          nextSlide(); // Swipe left
+        } else {
+          prevSlide(); // Swipe right
+        }
+      }
+    });
+
+    // Initialize slider
+    calculateProjectsPerSlide();
+    updateSlider();
+    
+    // Recalculate on window resize
+    window.addEventListener('resize', () => {
+      calculateProjectsPerSlide();
+      currentIndex = 0; // Reset to first slide
+      updateSlider();
+    });
+  }
+
   window.addEventListener("scroll", setActiveLink);
   setActiveLink();
 
@@ -343,4 +471,5 @@ document.addEventListener("DOMContentLoaded", function () {
     currentLang = currentLang === 'en' ? 'ar' : 'en';
     updateLanguage(currentLang);
   });
+
 });
