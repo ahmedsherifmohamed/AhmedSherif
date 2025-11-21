@@ -1,321 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ahmed Sherif - Data Scientist</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmed Sherif - Data Scientist</title>
+  <meta name="description" content="Portfolio of Ahmed Sherif, Data Scientist" />
+  <meta name="author" content="Ahmed Sherif" />
 
-    <meta name="description" content="Portfolio of Ahmed Sherif, Data Scientist specializing in data analysis, visualization, and machine learning." />
-    <meta name="author" content="Ahmed Sherif" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="/lovable-uploads/3be5c7f0-bc9a-4051-9b80-fde6e591a988.png" type="image/png">
 
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="icon" href="/lovable-uploads/3be5c7f0-bc9a-4051-9b80-fde6e591a988.png" type="image/png" />
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Ahmed Sherif - Data Scientist" />
-    <meta property="og:description" content="Portfolio of Ahmed Sherif, Data Scientist" />
-    <meta property="og:type" content="website" />
+  <!-- GPT Engineer Script -->
+  <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
 
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-      (function () {
-        emailjs.init("fc1Lm3qQfsHVeBOpMJVL2");
-      })();
-    </script>
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
 
-    <!-- GPT Engineer (DO NOT REMOVE) -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+<body>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..1000&display=swap" rel="stylesheet" />
-  </head>
+<header>
+  <div class="container">
+    <div class="logo"><span>AS</span></div>
 
-  <body>
-    <!-- Header -->
-    <header>
-      <div class="container">
-        <div class="logo"><span>AS</span></div>
+    <nav>
+      <ul>
+        <li><a href="#home" class="active" data-key="home">Home</a></li>
+        <li><a href="#about" data-key="about">About</a></li>
+        <li><a href="#skills" data-key="skills">Skills</a></li>
+        <li><a href="#projects" data-key="projects">Projects</a></li>
+        <li><a href="#contact" data-key="contact">Contact</a></li>
+      </ul>
+    </nav>
 
-        <nav>
-          <ul>
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
+    <div class="menu-toggle"><i class="fas fa-bars"></i></div>
 
-        <div class="menu-toggle">
-          <i class="fas fa-bars"></i>
+    <button id="langToggle" class="lang-btn">
+      <i class="fas fa-globe"></i> عربي
+    </button>
+  </div>
+</header>
+
+<section id="home" class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1 id="heroTitle">Ahmed Sherif</h1>
+      <h2 id="heroSubtitle">Data Scientist</h2>
+      <p id="heroText">Transforming data into meaningful insights</p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn primary" id="viewProjectsBtn">View Projects</a>
+        <a href="#contact" class="btn secondary" id="contactMeBtn">Contact Me</a>
+      </div>
+    </div>
+
+    <div class="hero-graphic">
+      <div class="data-visual">
+        <div class="chart-container">
+          <div class="bar bar1"></div>
+          <div class="bar bar2"></div>
+          <div class="bar bar3"></div>
+          <div class="bar bar4"></div>
+          <div class="bar bar5"></div>
         </div>
       </div>
-    </header>
+    </div>
+  </div>
+</section>
 
-    <!-- Hero -->
-    <section id="home" class="hero">
-      <div class="container">
-        <div class="hero-content">
-          <h1>Ahmed Sherif</h1>
-          <h2>Data Scientist</h2>
-          <p>Transforming data into meaningful insights</p>
+<section id="about">
+  <div class="container">
+    <h2 class="section-title" id="aboutTitle">About Me</h2>
 
-          <div class="hero-buttons">
-            <a href="#projects" class="btn primary">View Projects</a>
-            <a href="#contact" class="btn secondary">Contact Me</a>
-          </div>
-        </div>
+    <div class="about-content">
+      <div class="about-text">
+        <p id="aboutText1">
+          I'm Ahmed Sherif, a passionate Data Scientist dedicated to uncovering insights from complex datasets.
+        </p>
+        <p id="aboutText2">
+          With expertise in statistical analysis, machine learning, and data visualization...
+        </p>
 
-        <div class="hero-graphic">
-          <div class="data-visual">
-            <div class="chart-container">
-              <div class="bar bar1"></div>
-              <div class="bar bar2"></div>
-              <div class="bar bar3"></div>
-              <div class="bar bar4"></div>
-              <div class="bar bar5"></div>
-            </div>
-          </div>
+        <div class="about-cta">
+          <a href="#contact" class="btn primary" id="getInTouch">Get in Touch</a>
+          <a href="./Ahmed_Sherif_CV.pdf" download class="btn secondary" id="downloadCV">
+            Download CV <i class="fas fa-download"></i>
+          </a>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- About -->
-    <section id="about">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
+<section id="skills">
+  <div class="container">
+    <h2 class="section-title" id="skillsTitle">Skills</h2>
 
-        <div class="about-content">
-          <div class="about-text">
-            <p>
-              I'm Ahmed Sherif, a passionate Data Scientist who loves uncovering insights from complex datasets.
-              I combine analytical thinking with strong technical skills to solve real-world problems.
-            </p>
-
-            <p>
-              With experience in statistical analysis, data visualization, and machine learning, I help organizations
-              make informed, data-driven decisions.
-            </p>
-
-            <div class="about-cta">
-              <a href="#contact" class="btn primary">Get in Touch</a>
-              <a href="./Ahmed_Sherif_CV.pdf" download class="btn secondary">
-                Download CV <i class="fas fa-download"></i>
-              </a>
-            </div>
-          </div>
+    <div class="skills-container">
+      <div class="skill-category">
+        <h3 id="programmingTitle">Programming</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span>Python</span><div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div></div>
+          <div class="skill-item"><span>SQL</span><div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div></div>
+          <div class="skill-item"><span>Excel</span><div class="skill-bar"><div class="skill-level" style="width: 65%"></div></div></div>
         </div>
       </div>
-    </section>
 
-    <!-- Skills -->
-    <section id="skills">
-      <div class="container">
-        <h2 class="section-title">Skills</h2>
-
-        <div class="skills-container">
-          <!-- Programming -->
-          <div class="skill-category">
-            <h3>Programming</h3>
-            <div class="skill-items">
-              <div class="skill-item">
-                <span>Python</span>
-                <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
-              </div>
-              <div class="skill-item">
-                <span>SQL</span>
-                <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
-              </div>
-              <div class="skill-item">
-                <span>Excel</span>
-                <div class="skill-bar"><div class="skill-level" style="width: 65%"></div></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Libraries -->
-          <div class="skill-category">
-            <h3>Data Analysis Libraries</h3>
-            <div class="skill-items">
-              <div class="skill-item">
-                <span>Pandas</span>
-                <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
-              </div>
-              <div class="skill-item">
-                <span>NumPy</span>
-                <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
-              </div>
-              <div class="skill-item">
-                <span>Matplotlib</span>
-                <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Data Science -->
-          <div class="skill-category">
-            <h3>Data Science Concepts</h3>
-            <div class="skill-items">
-              <div class="skill-item">
-                <span>Data Visualization</span>
-                <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
-              </div>
-              <div class="skill-item">
-                <span>Statistical Analysis</span>
-                <div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div>
-              </div>
-              <div class="skill-item">
-                <span>Data Cleaning</span>
-                <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
-              </div>
-            </div>
-          </div>
+      <div class="skill-category">
+        <h3 id="dataAnalysisTitle">Data Analysis Libraries</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span>Pandas</span><div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div></div>
+          <div class="skill-item"><span>NumPy</span><div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div></div>
+          <div class="skill-item"><span>Matplotlib</span><div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div></div>
         </div>
       </div>
-    </section>
 
-    <!-- Projects (FULLY FIXED + 5 SLIDES) -->
-    <section id="projects">
-      <div class="container">
-        <h2 class="section-title">Projects</h2>
+      <div class="skill-category">
+        <h3 id="dataScienceConceptsTitle">Data Science Concepts</h3>
+        <div class="skill-items">
+          <div class="skill-item"><span id="vizLabel">Data Visualization</span><div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div></div>
+          <div class="skill-item"><span id="statsLabel">Statistical Analysis</span><div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div></div>
+          <div class="skill-item"><span id="cleaningLabel">Data Cleaning</span><div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="slider-wrapper">
-          <button class="slider-arrow slider-arrow-left">
-            <i class="fas fa-chevron-left"></i>
-          </button>
+<section id="projects">
+  <div class="container">
+    <h2 class="section-title" id="projectsTitle">Projects</h2>
 
-          <div class="projects-slider">
-            <div class="projects-container">
+    <div class="slider-wrapper">
+      <button class="slider-arrow slider-arrow-left"><i class="fas fa-chevron-left"></i></button>
 
-              <!-- Slide 1: Car Sales -->
-              <div class="project-card">
-                <div class="project-image"><i class="fa-solid fa-car"></i></div>
-                <div class="project-content">
-                  <h3>Car Company Sales</h3>
-                  <p>Analysis of sales performance for a car company.</p>
-                  <div class="project-tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
-                  <a href="https://github.com/ahmedshekooo/carsales" target="_blank" class="btn secondary small">View Project</a>
-                </div>
-              </div>
+      <div class="projects-slider">
+        <div class="projects-container">
 
-              <!-- Slide 2 -->
-              <div class="project-card">
-                <div class="project-image"><i class="fas fa-chart-line"></i></div>
-                <div class="project-content">
-                  <h3>Dog Rates Tweet Analysis</h3>
-                  <p>Data analysis of tweets from the DogRates Twitter page.</p>
-                  <div class="project-tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
-                  <a href="https://github.com/ahmedshekooo/twitter_project" target="_blank" class="btn secondary small">View Project</a>
-                </div>
-              </div>
-
-              <!-- Slide 3 -->
-              <div class="project-card">
-                <div class="project-image"><i class="fa-solid fa-video"></i></div>
-                <div class="project-content">
-                  <h3>TMDB Movies</h3>
-                  <p>Analyzing a 5000-movie dataset to uncover trends.</p>
-                  <div class="project-tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
-                  <a href="https://github.com/ahmedshekooo/movies_project" target="_blank" class="btn secondary small">View Project</a>
-                </div>
-              </div>
-
-              <!-- Slide 4 -->
-              <div class="project-card">
-                <div class="project-image"><i class="fa-solid fa-candy-cane"></i></div>
-                <div class="project-content">
-                  <h3>Diabetes Project</h3>
-                  <p>Analysis of diabetes-related factors.</p>
-                  <div class="project-tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
-                  <a href="https://github.com/ahmedshekooo/diabetes_project" target="_blank" class="btn secondary small">View Project</a>
-                </div>
-              </div>
-
-              <!-- Slide 5 -->
-              <div class="project-card">
-                <div class="project-image"><i class="fa-solid fa-money-bill-trend-up"></i></div>
-                <div class="project-content">
-                  <h3>Data Science Job Salaries</h3>
-                  <p>Analysis of data science salary trends globally.</p>
-                  <div class="project-tags"><span>Python</span><span>Pandas</span><span>Matplotlib</span></div>
-                  <a href="https://github.com/ahmedshekooo/data-science-salaries" target="_blank" class="btn secondary small">View Project</a>
-                </div>
-              </div>
-
+          <!-- SLIDE 1 -->
+          <div class="project-card">
+            <div class="project-image"><i class="fa-solid fa-car"></i></div>
+            <div class="project-content">
+              <h3>Car Company Sales</h3>
+              <p>Analysis of car company sales data.</p>
+              <a href="https://github.com/ahmedshekooo/carsales" class="btn secondary small">View Project</a>
             </div>
           </div>
 
-          <button class="slider-arrow slider-arrow-right">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-
-        <!-- Updated dots (5 slides) -->
-        <div class="slider-dots">
-          <span class="dot active" data-slide="0"></span>
-          <span class="dot" data-slide="1"></span>
-          <span class="dot" data-slide="2"></span>
-          <span class="dot" data-slide="3"></span>
-          <span class="dot" data-slide="4"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title">Contact Me</h2>
-
-        <div class="contact-container">
-          <div class="contact-info">
-            <p>I'm always interested in new opportunities and collaborations.</p>
-
-            <div class="contact-method">
-              <i class="fas fa-envelope"></i>
-              <a href="mailto:ahmedshekooo2010@gmail.com">ahmedshekooo2010@gmail.com</a>
-            </div>
-
-            <div class="social-links">
-              <a href="https://github.com/ahmedshekooo" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
-              <a href="https://www.facebook.com/profile.php?id=61564026118682" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
-              <a href="https://www.youtube.com/@ahmedsherif-by6fo" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+          <!-- SLIDE 2 -->
+          <div class="project-card">
+            <div class="project-image"><i class="fas fa-chart-line"></i></div>
+            <div class="project-content">
+              <h3>Dog Rates Tweet Analysis</h3>
+              <p>Analysis of dog rate tweets.</p>
+              <a href="https://github.com/ahmedshekooo/twitter_project" class="btn secondary small">View Project</a>
             </div>
           </div>
 
-          <div class="contact-form">
-            <form id="contactForm">
-              <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-
-              <div class="form-group">
-                <label for="email">Your Email</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-              </div>
-
-              <button type="submit" class="btn primary">Send Message</button>
-            </form>
+          <!-- SLIDE 3 -->
+          <div class="project-card">
+            <div class="project-image"><i class="fa-solid fa-video"></i></div>
+            <div class="project-content">
+              <h3>TMDB Movies</h3>
+              <p>Analysis of a movie dataset.</p>
+              <a href="https://github.com/ahmedshekooo/movies_project" class="btn secondary small">View Project</a>
+            </div>
           </div>
+
+          <!-- SLIDE 4 -->
+          <div class="project-card">
+            <div class="project-image"><i class="fa-solid fa-candy-cane"></i></div>
+            <div class="project-content">
+              <h3>Diabetes Project</h3>
+              <p>Factors affecting diabetes.</p>
+              <a href="https://github.com/ahmedshekooo/diabetes_project" class="btn secondary small">View Project</a>
+            </div>
+          </div>
+
+          <!-- SLIDE 5 -->
+          <div class="project-card">
+            <div class="project-image"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+            <div class="project-content">
+              <h3>Data Science Salaries</h3>
+              <p>Analysis of job salaries.</p>
+              <a href="#" class="btn secondary small">View Project</a>
+            </div>
+          </div>
+
         </div>
       </div>
-    </section>
 
-    <footer>
-      <div class="container">
-        <p>&copy; 2024 Ahmed Sherif | Data Scientist</p>
+      <button class="slider-arrow slider-arrow-right"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <div class="slider-dots" id="sliderDots"></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title" id="contactTitle">Contact Me</h2>
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <p id="contactDesc">I'm always interested in new opportunities. Feel free to reach out!</p>
+
+        <div class="contact-method">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:ahmedshekooo2010@gmail.com">ahmedshekooo2010@gmail.com</a>
+        </div>
+
+        <div class="social-links">
+          <a href="https://github.com/ahmedshekooo"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
-    </footer>
 
-    <script src="script.js"></script>
-  </body>
+      <div class="contact-form">
+        <form id="contactForm">
+          <label for="name" id="yourNameLabel">Your Name</label>
+          <input type="text" id="name" required>
+
+          <label for="email" id="yourEmailLabel">Your Email</label>
+          <input type="email" id="email" required>
+
+          <label for="message" id="messageLabel">Message</label>
+          <textarea id="message" rows="5" required></textarea>
+
+          <button type="submit" class="btn primary" id="sendMessageBtn">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2024 Ahmed Sherif | Data Scientist</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
 </html>
