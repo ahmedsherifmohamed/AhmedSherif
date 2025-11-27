@@ -1,3 +1,6 @@
+/* ------------------------------------------
+   TRANSLATIONS
+-------------------------------------------- */
 const translations = {
   en: {
     home: "Home",
@@ -5,64 +8,83 @@ const translations = {
     skills: "Skills",
     projects: "Projects",
     contact: "Contact",
+
     heroTitle: "Ahmed Sherif",
     heroSubtitle: "Data Scientist",
     heroText: "Transforming data into meaningful insights",
     viewProjects: "View Projects",
     contactMe: "Contact Me",
+
     aboutTitle: "About Me",
-    aboutText1: "I'm Ahmed Sherif, a passionate Data Scientist dedicated to uncovering insights from complex datasets. I combine analytical skills with technical expertise to solve real-world problems through data-driven approaches.",
+    aboutText1: "I'm Ahmed Sherif, a passionate Data Scientist dedicated to uncovering insights from complex datasets.",
     aboutText2: "With expertise in statistical analysis, machine learning, and data visualization, I help organizations make informed decisions based on data insights.",
     getInTouch: "Get in Touch",
     downloadCV: "Download CV",
+
     programming: "Programming",
     dataAnalysis: "Data Analysis Libraries",
     dataScienceConcepts: "Data Science Concepts",
     dataVisualization: "Data Visualization",
     statisticalAnalysis: "Statistical Analysis",
     dataCleaning: "Data Cleaning",
-    customerSegmentation: "Customer Segmentation Analysis",
-    customerSegmentationDesc: "Used K-means clustering to identify customer segments for a retail company, increasing targeted marketing efficiency by 35%.",
-    salesForecasting: "Predictive Sales Forecasting",
-    salesForecastingDesc: "Developed time-series models to predict quarterly sales figures with 92% accuracy, helping optimize inventory management.",
-    sentimentAnalysis: "Sentiment Analysis Tool",
-    sentimentAnalysisDesc: "Built an NLP-based sentiment analysis tool for social media data that helped a client improve product perception by identifying key pain points.",
-    viewProject: "View Project",
+
+    projectsTitle: "Projects",
+
+    customerSegmentation: "Car Company Sales",
+    customerSegmentationDesc: "Analysis of car company sales data.",
+
+    salesForecasting: "Dog Rates Tweet Analysis",
+    salesForecastingDesc: "Analysis of dog rate tweets.",
+
+    sentimentAnalysis: "TMDB Movies",
+    sentimentAnalysisDesc: "Analysis of a movie dataset.",
+
     contactDesc: "I'm always interested in new opportunities and collaborations. Feel free to reach out!",
     yourName: "Your Name",
     yourEmail: "Your Email",
     message: "Message",
     sendMessage: "Send Message"
   },
+
   ar: {
     home: "الرئيسية",
     about: "عني",
     skills: "المهارات",
     projects: "المشاريع",
     contact: "اتصل بي",
+
     heroTitle: "أحمد شريف",
     heroSubtitle: "عالم بيانات",
     heroText: "تحويل البيانات إلى رؤى ذات معنى",
     viewProjects: "عرض المشاريع",
     contactMe: "اتصل بي",
+
     aboutTitle: "نبذة عني",
-    aboutText1: "أنا أحمد شريف، عالم بيانات شغوف مكرس لاكتشاف الرؤى من مجموعات البيانات المعقدة. أجمع بين المهارات التحليلية والخبرة التقنية لحل المشكلات الواقعية من خلال النهج القائم على البيانات.",
-    aboutText2: "مع الخبرة في التحليل الإحصائي والتعلم الآلي وتصور البيانات، أساعد المؤسسات على اتخاذ قرارات مستنيرة بناءً على رؤى البيانات.",
+    aboutText1:
+      "أنا أحمد شريف، عالم بيانات شغوف مكرس لاكتشاف الرؤى من مجموعات البيانات المعقدة.",
+    aboutText2:
+      "مع الخبرة في التحليل الإحصائي والتعلم الآلي وتصور البيانات، أساعد المؤسسات على اتخاذ قرارات مستنيرة.",
     getInTouch: "تواصل معي",
     downloadCV: "تحميل السيرة الذاتية",
+
     programming: "البرمجة",
     dataAnalysis: "مكتبات تحليل البيانات",
     dataScienceConcepts: "مفاهيم علوم البيانات",
     dataVisualization: "تصور البيانات",
     statisticalAnalysis: "التحليل الإحصائي",
     dataCleaning: "تنظيف البيانات",
-    customerSegmentation: "تحليل تقسيم العملاء",
-    customerSegmentationDesc: "استخدام خوارزمية K-means للتجميع لتحديد شرائح العملاء لشركة تجزئة، مما أدى إلى زيادة كفاءة التسويق المستهدف بنسبة 35%.",
-    salesForecasting: "التنبؤ التنبؤي بالمبيعات",
-    salesForecastingDesc: "تطوير نماذج السلاسل الزمنية للتنبؤ بأرقام المبيعات الفصلية بدقة 92%، مما يساعد في تحسين إدارة المخزون.",
-    sentimentAnalysis: "أداة تحليل المشاعر",
-    sentimentAnalysisDesc: "بناء أداة تحليل مشاعر قائمة على معالجة اللغة الطبيعية لبيانات وسائل التواصل الاجتماعي ساعدت العميل في تحسين تصور المنتج من خلال تحديد نقاط الألم الرئيسية.",
-    viewProject: "عرض المشروع",
+
+    projectsTitle: "المشاريع",
+
+    customerSegmentation: "مبيعات شركة سيارات",
+    customerSegmentationDesc: "تحليل بيانات مبيعات شركة سيارات.",
+
+    salesForecasting: "تحليل تغريدات تقييم الكلاب",
+    salesForecastingDesc: "تحليل تغريدات تقييم الكلاب.",
+
+    sentimentAnalysis: "تحليل بيانات الأفلام TMDB",
+    sentimentAnalysisDesc: "تحليل قاعدة بيانات الأفلام.",
+
     contactDesc: "أنا مهتم دائمًا بالفرص والتعاون الجديد. لا تتردد في التواصل!",
     yourName: "اسمك",
     yourEmail: "بريدك الإلكتروني",
@@ -71,405 +93,219 @@ const translations = {
   }
 };
 
+/* ------------------------------------------
+   DOM READY
+-------------------------------------------- */
 document.addEventListener("DOMContentLoaded", function () {
-  // Initialize EmailJS
+  console.log("JS Loaded Successfully ✔");
+
+  /* -----------------------------
+     EMAILJS SETUP
+  ------------------------------ */
   if (window.emailjs) {
     emailjs.init("bw1nonZwyPC_je7oz");
-    console.log("EmailJS initialized successfully");
-  } else {
-    console.error("EmailJS failed to load");
+    console.log("EmailJS initialized");
   }
 
-  // Check if CV download button works
-  const cvButton = document.querySelector(".about-cta .btn.secondary");
-  if (cvButton) {
-    cvButton.addEventListener("click", function (e) {
-      console.log("CV download requested");
-    });
-  }
-
-  // Handle contact form submission
   const contactForm = document.getElementById("contactForm");
+
   if (contactForm) {
     contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      // Get form values
       const name = document.getElementById("name").value;
       const email = document.getElementById("email").value;
       const message = document.getElementById("message").value;
 
-      // Update template parameters to match your EmailJS template
-      const templateParams = {
+      const params = {
         to_name: "Ahmed Sherif",
-        from_name: `${name} (${email})`, // Combine name and email
-        from_email: email,
-        message: `Email: ${email}\nName: ${name}\n\nMessage:\n${message}`, // Format the message with email and name
+        from_name: `${name} (${email})`,
+        message: message,
         reply_to: email,
-        contact_number: (Math.random() * 100000) | 0,
       };
 
-      // Show sending state
-      const submitButton = contactForm.querySelector('button[type="submit"]');
-      const originalButtonText = submitButton.textContent;
-      submitButton.textContent = "Sending...";
-      submitButton.disabled = true;
+      const submitBtn = contactForm.querySelector("button");
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
 
-      // Send email using EmailJS with your correct service and template IDs
       emailjs
-        .send("service_contact", "template_q9wp6ei", templateParams)
-        .then(function (response) {
-          console.log("SUCCESS!", response.status, response.text);
-
-          // Remove any existing status messages
-          const existingStatus = contactForm.querySelector(".form-status");
-          if (existingStatus) {
-            existingStatus.remove();
-          }
-
-          // Create and insert success message before the submit button
-          const successMsg = document.createElement("div");
-          successMsg.classList.add("form-status", "success");
-          successMsg.innerHTML = `
-            email: ${email}<br>
-            name: ${name}<br>
-            Message sent successfully!
-          `;
-
-          // Insert before the submit button with spacing
-          submitButton.parentNode.insertBefore(successMsg, submitButton);
-
-          // Reset form
+        .send("service_contact", "template_q9wp6ei", params)
+        .then(() => {
+          alert("Message sent successfully!");
           contactForm.reset();
         })
-        .catch(function (error) {
-          console.log("FAILED...", error);
-
-          // Show error message
-          const errorMsg = document.createElement("div");
-          errorMsg.classList.add("form-status", "error");
-          errorMsg.textContent = "Failed to send message. Please try again.";
-          contactForm.appendChild(errorMsg);
+        .catch(() => {
+          alert("Failed to send message.");
         })
-        .finally(function () {
-          // Reset button state
-          submitButton.textContent = originalButtonText;
-          submitButton.disabled = false;
+        .finally(() => {
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
         });
     });
   }
 
-  // Mobile menu toggle
+  /* -----------------------------
+     MOBILE MENU TOGGLE
+  ------------------------------ */
   const menuToggle = document.querySelector(".menu-toggle");
   const navMenu = document.querySelector("nav ul");
 
-  if (menuToggle && navMenu) {
+  if (menuToggle) {
     menuToggle.addEventListener("click", () => {
       navMenu.classList.toggle("show");
-      menuToggle.classList.toggle("active"); // Toggle active class for X icon
-    });
-
-    // Close menu when clicking a link
-    document.querySelectorAll("nav ul li a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navMenu.classList.remove("show");
-        menuToggle.classList.remove("active");
-      });
     });
   }
 
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
+  /* -----------------------------
+     SMOOTH SCROLLING
+  ------------------------------ */
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", function (e) {
       e.preventDefault();
-
-      if (navMenu && navMenu.classList.contains("show")) {
-        navMenu.classList.remove("show");
-      }
-
       const target = document.querySelector(this.getAttribute("href"));
-      if (target) {
-        target.scrollIntoView({
-          behavior: "smooth",
-        });
-      }
+      target?.scrollIntoView({ behavior: "smooth" });
+      navMenu.classList.remove("show");
     });
   });
 
-  // Active navigation link highlighting
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("nav ul li a");
+  /* -----------------------------
+     PROJECT SLIDER
+  ------------------------------ */
+  const sliderWrapper = document.querySelector(".slider-wrapper");
+  const projectsContainer = document.querySelector(".projects-container");
+  const leftArrow = document.querySelector(".slider-arrow-left");
+  const rightArrow = document.querySelector(".slider-arrow-right");
+  const dotsContainer = document.getElementById("sliderDots");
 
-  function setActiveLink() {
-    let current = "";
+  let currentIndex = 0;
+  const cards = document.querySelectorAll(".project-card");
+  const GAP = 30;
+  const CARD_WIDTH = 300;
 
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 100;
-      const sectionHeight = section.clientHeight;
+  let projectsPerSlide = 1;
+  let totalSlides = Math.ceil(cards.length / projectsPerSlide);
 
-      if (
-        window.scrollY >= sectionTop &&
-        window.scrollY < sectionTop + sectionHeight
-      ) {
-        current = section.getAttribute("id");
-      }
-    });
+  function calculateSlides() {
+    const sliderWidth = document.querySelector(".projects-slider").offsetWidth;
 
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === `#${current}`) {
-        link.classList.add("active");
-      }
+    projectsPerSlide = Math.floor((sliderWidth + GAP) / (CARD_WIDTH + GAP));
+    projectsPerSlide = Math.max(1, projectsPerSlide);
+
+    totalSlides = Math.ceil(cards.length / projectsPerSlide);
+
+    generateDots();
+  }
+
+  function generateDots() {
+    dotsContainer.innerHTML = "";
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement("div");
+      dot.className = "dot";
+      if (i === 0) dot.classList.add("active");
+
+      dot.addEventListener("click", () => goToSlide(i));
+
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateSlider() {
+    const slideWidth = projectsPerSlide * (CARD_WIDTH + GAP) - GAP;
+    projectsContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+    document.querySelectorAll(".dot").forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentIndex);
     });
   }
 
-  // Add data visualization animation effects
-  const bars = document.querySelectorAll(".chart-container .bar");
-  const observerOptions = {
-    threshold: 0.5,
-    rootMargin: "0px",
-  };
-
-  const barObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.animation = "none";
-        void entry.target.offsetWidth; // Trigger reflow
-        entry.target.style.animation = `barGrow ${
-          2 + Math.random()
-        }s ease forwards ${Math.random() * 0.5}s`;
-      }
-    });
-  }, observerOptions);
-
-  bars.forEach((bar) => {
-    barObserver.observe(bar);
-  });
-
-  // Projects Slider Functionality
-  const sliderWrapper = document.querySelector('.slider-wrapper');
-  if (sliderWrapper) {
-    const projectsContainer = sliderWrapper.querySelector('.projects-container');
-    const projectCards = sliderWrapper.querySelectorAll('.project-card');
-    const leftArrow = sliderWrapper.querySelector('.slider-arrow-left');
-    const rightArrow = sliderWrapper.querySelector('.slider-arrow-right');
-    const dots = document.querySelectorAll('.dot');
-    
-    let currentIndex = 0;
-    let projectsPerSlide = 1;
-    let totalSlides = 1;
-
-    // Function to calculate how many projects can fit in the visible area
-    function calculateProjectsPerSlide() {
-      const sliderWidth = sliderWrapper.querySelector('.projects-slider').offsetWidth;
-      const cardWidth = 300; // Minimum card width
-      const gap = 30; // Gap between cards
-      
-      // Calculate how many projects can fit
-      projectsPerSlide = Math.floor((sliderWidth + gap) / (cardWidth + gap));
-      projectsPerSlide = Math.max(1, Math.min(projectsPerSlide, projectCards.length));
-      
-      // Calculate total slides needed
-      totalSlides = Math.ceil(projectCards.length / projectsPerSlide);
-      
-      console.log(`Slider: ${projectsPerSlide} projects per slide, ${totalSlides} total slides`);
-      
-      return { projectsPerSlide, totalSlides };
-    }
-
-    function updateSlider() {
-      // Calculate translation based on current slide and projects per slide
-      const slideWidth = projectsPerSlide * (300 + 30) - 30; // Card width + gap
-      const translateX = -currentIndex * slideWidth;
-      projectsContainer.style.transform = `translateX(${translateX}px)`;
-      
-      // Update dots
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-        // Hide dots that aren't needed
-        dot.style.display = index < totalSlides ? 'block' : 'none';
-      });
-    }
-
-    function goToSlide(index) {
-      currentIndex = index;
-      updateSlider();
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlider();
-    }
-
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-      updateSlider();
-    }
-
-    // Event listeners for arrows
-    if (leftArrow) {
-      leftArrow.addEventListener('click', prevSlide);
-    }
-    
-    if (rightArrow) {
-      rightArrow.addEventListener('click', nextSlide);
-    }
-
-    // Event listeners for dots
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => goToSlide(index));
-    });
-
-    // Auto-slide functionality
-    let autoSlideInterval = setInterval(nextSlide, 5000);
-
-    // Pause auto-slide on hover
-    sliderWrapper.addEventListener('mouseenter', () => {
-      clearInterval(autoSlideInterval);
-    });
-
-    sliderWrapper.addEventListener('mouseleave', () => {
-      autoSlideInterval = setInterval(nextSlide, 5000);
-    });
-
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') {
-        prevSlide();
-      } else if (e.key === 'ArrowRight') {
-        nextSlide();
-      }
-    });
-
-    // Touch/swipe support for mobile
-    let startX = 0;
-    let endX = 0;
-
-    sliderWrapper.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-    });
-
-    sliderWrapper.addEventListener('touchend', (e) => {
-      endX = e.changedTouches[0].clientX;
-      const diff = startX - endX;
-      
-      if (Math.abs(diff) > 50) { // Minimum swipe distance
-        if (diff > 0) {
-          nextSlide(); // Swipe left
-        } else {
-          prevSlide(); // Swipe right
-        }
-      }
-    });
-
-    // Initialize slider
-    calculateProjectsPerSlide();
+  function goToSlide(i) {
+    currentIndex = i;
     updateSlider();
-    
-    // Recalculate on window resize
-    window.addEventListener('resize', () => {
-      calculateProjectsPerSlide();
-      currentIndex = 0; // Reset to first slide
-      updateSlider();
-    });
   }
 
-  window.addEventListener("scroll", setActiveLink);
-  setActiveLink();
-
-  // Language switching functionality
-  let currentLang = 'en';
-  const langToggle = document.getElementById('langToggle');
-  
-  function updateLanguage(lang) {
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    
-    // Update navigation items
-    document.querySelectorAll('nav ul li a').forEach(link => {
-      const key = link.getAttribute('href').replace('#', '');
-      if (translations[lang][key]) {
-        link.textContent = translations[lang][key];
-      }
-    });
-    
-    // Update hero section
-    document.querySelector('.hero-content h1').textContent = translations[lang].heroTitle;
-    document.querySelector('.hero-content h2').textContent = translations[lang].heroSubtitle;
-    document.querySelector('.hero-content p').textContent = translations[lang].heroText;
-    document.querySelector('.hero-buttons .btn.primary').textContent = translations[lang].viewProjects;
-    document.querySelector('.hero-buttons .btn.secondary').textContent = translations[lang].contactMe;
-    
-    // Update about section
-    document.querySelector('#about .section-title').textContent = translations[lang].aboutTitle;
-    const aboutParagraphs = document.querySelectorAll('#about .about-text p');
-    aboutParagraphs[0].textContent = translations[lang].aboutText1;
-    aboutParagraphs[1].textContent = translations[lang].aboutText2;
-
-    // Update about section buttons
-    const aboutButtons = document.querySelectorAll('.about-cta .btn');
-    aboutButtons.forEach(btn => {
-        if (btn.classList.contains('primary')) {
-            btn.textContent = translations[lang].getInTouch;
-        } else if (btn.classList.contains('secondary')) {
-            // Preserve the download icon while updating the text
-            btn.innerHTML = `${translations[lang].downloadCV} <i class="fas fa-download"></i>`;
-        }
-    });
-    
-    // Update skills section
-    document.querySelector('#skills .section-title').textContent = translations[lang].skills;
-    document.querySelectorAll('.skill-category h3').forEach((h3, index) => {
-      if (index === 0) h3.textContent = translations[lang].programming;
-      if (index === 1) h3.textContent = translations[lang].dataAnalysis;
-      if (index === 2) h3.textContent = translations[lang].dataScienceConcepts;
-    });
-    
-    // Update skill names
-    const skillNames = document.querySelectorAll('.skill-item span');
-    skillNames.forEach(span => {
-      if (span.textContent === "Data Visualization") span.textContent = translations[lang].dataVisualization;
-      if (span.textContent === "Statistical Analysis") span.textContent = translations[lang].statisticalAnalysis;
-      if (span.textContent === "Data Cleaning") span.textContent = translations[lang].dataCleaning;
-    });
-    
-    // Update projects section
-    document.querySelector('#projects .section-title').textContent = translations[lang].projects;
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach((card, index) => {
-      const title = card.querySelector('h3');
-      const desc = card.querySelector('p');
-      const btn = card.querySelector('.btn');
-      
-      if (index === 0) {
-        title.textContent = translations[lang].customerSegmentation;
-        desc.textContent = translations[lang].customerSegmentationDesc;
-      } else if (index === 1) {
-        title.textContent = translations[lang].salesForecasting;
-        desc.textContent = translations[lang].salesForecastingDesc;
-      } else if (index === 2) {
-        title.textContent = translations[lang].sentimentAnalysis;
-        desc.textContent = translations[lang].sentimentAnalysisDesc;
-      }
-      
-      btn.textContent = translations[lang].viewProject;
-    });
-    
-    // Update contact section
-    document.querySelector('#contact .section-title').textContent = translations[lang].contact;
-    document.querySelector('.contact-info p').textContent = translations[lang].contactDesc;
-    document.querySelector('label[for="name"]').textContent = translations[lang].yourName;
-    document.querySelector('label[for="email"]').textContent = translations[lang].yourEmail;
-    document.querySelector('label[for="message"]').textContent = translations[lang].message;
-    document.querySelector('#contactForm button').textContent = translations[lang].sendMessage;
-    
-    // Update language toggle button
-    langToggle.innerHTML = `<i class="fas fa-globe"></i> ${lang === 'en' ? 'عربي' : 'English'}`;
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlider();
   }
-  
-  langToggle.addEventListener('click', () => {
-    currentLang = currentLang === 'en' ? 'ar' : 'en';
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateSlider();
+  }
+
+  if (leftArrow) leftArrow.addEventListener("click", prevSlide);
+  if (rightArrow) rightArrow.addEventListener("click", nextSlide);
+
+  calculateSlides();
+  updateSlider();
+  window.addEventListener("resize", () => {
+    calculateSlides();
+    currentIndex = 0;
+    updateSlider();
+  });
+
+  /* -----------------------------
+     LANGUAGE SWITCH
+  ------------------------------ */
+  let currentLang = "en";
+  const langToggle = document.getElementById("langToggle");
+
+  langToggle.addEventListener("click", () => {
+    currentLang = currentLang === "en" ? "ar" : "en";
     updateLanguage(currentLang);
   });
 
+  function updateLanguage(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+    document.querySelectorAll("[data-key]").forEach((el) => {
+      el.textContent = translations[lang][el.dataset.key];
+    });
+
+    document.getElementById("heroTitle").textContent = translations[lang].heroTitle;
+    document.getElementById("heroSubtitle").textContent = translations[lang].heroSubtitle;
+    document.getElementById("heroText").textContent = translations[lang].heroText;
+
+    document.getElementById("viewProjectsBtn").textContent = translations[lang].viewProjects;
+    document.getElementById("contactMeBtn").textContent = translations[lang].contactMe;
+
+    document.getElementById("aboutTitle").textContent = translations[lang].aboutTitle;
+    document.getElementById("aboutText1").textContent = translations[lang].aboutText1;
+    document.getElementById("aboutText2").textContent = translations[lang].aboutText2;
+    document.getElementById("getInTouch").textContent = translations[lang].getInTouch;
+    document.getElementById("downloadCV").innerHTML = `${translations[lang].downloadCV} <i class="fas fa-download"></i>`;
+
+    document.getElementById("skillsTitle").textContent = translations[lang].skills;
+    document.getElementById("programmingTitle").textContent = translations[lang].programming;
+    document.getElementById("dataAnalysisTitle").textContent = translations[lang].dataAnalysis;
+    document.getElementById("dataScienceConceptsTitle").textContent = translations[lang].dataScienceConcepts;
+
+    document.getElementById("vizLabel").textContent = translations[lang].dataVisualization;
+    document.getElementById("statsLabel").textContent = translations[lang].statisticalAnalysis;
+    document.getElementById("cleaningLabel").textContent = translations[lang].dataCleaning;
+
+    document.getElementById("projectsTitle").textContent = translations[lang].projects;
+
+    const cards = document.querySelectorAll(".project-card");
+    cards[0].querySelector("h3").textContent = translations[lang].customerSegmentation;
+    cards[0].querySelector("p").textContent = translations[lang].customerSegmentationDesc;
+
+    cards[1].querySelector("h3").textContent = translations[lang].salesForecasting;
+    cards[1].querySelector("p").textContent = translations[lang].salesForecastingDesc;
+
+    cards[2].querySelector("h3").textContent = translations[lang].sentimentAnalysis;
+    cards[2].querySelector("p").textContent = translations[lang].sentimentAnalysisDesc;
+
+    document.getElementById("contactDesc").textContent = translations[lang].contactDesc;
+    document.getElementById("yourNameLabel").textContent = translations[lang].yourName;
+    document.getElementById("yourEmailLabel").textContent = translations[lang].yourEmail;
+    document.getElementById("messageLabel").textContent = translations[lang].message;
+    document.getElementById("sendMessageBtn").textContent = translations[lang].sendMessage;
+
+    langToggle.innerHTML = `<i class="fas fa-globe"></i> ${lang === "en" ? "عربي" : "English"}`;
+  }
+
+  updateLanguage("en");
 });
