@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "title": "Cars Company Sales",
+    "description": "Analysis of sales trends and performance for a car company.",
+    "icon": "fa-solid fa-car",
+    "tags": ["Python", "Pandas", "Matplotlib"],
+    "link": "https://github.com/ahmedshekooo/carsales"
+  },
+  {
+    "id": 2,
+    "title": "Dog Rates Tweets Analysis",
+    "description": "Analysis for Twitter tweets from the dog rates page.",
+    "icon": "fas fa-chart-line",
+    "tags": ["Python", "Pandas", "Matplotlib"],
+    "link": "https://github.com/ahmedshekooo/twitter_project"
+  },
+  {
+    "id": 3,
+    "title": "TMDB Movies",
+    "description": "Analyzing a 5000-movie dataset to get the best destinations.",
+    "icon": "fa-solid fa-video",
+    "tags": ["Python", "Pandas", "Matplotlib"],
+    "link": "https://github.com/ahmedshekooo/movies_project"
+  },
+  {
+    "id": 4,
+    "title": "Diabetes Project",
+    "description": "Analysis for the diabetes dataset to get factors affecting the being of diabetes.",
+    "icon": "fa-solid fa-candy-cane",
+    "tags": ["Python", "Pandas", "Matplotlib"],
+    "link": "https://github.com/ahmedshekooo/diabetes_project"
+  },
+  {
+    "id": 5,
+    "title": "Data Science Job Salaries",
+    "description": "This project analyzes data science job salaries.",
+    "icon": "fa-solid fa-money-bill-trend-up",
+    "tags": ["Python", "Pandas", "Matplotlib"],
+    "link": "https://github.com/ahmedshekooo/diabetes_project"
+  }
+]
+

@@ -170,6 +170,47 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* -----------------------------
+     LOAD PROJECTS FROM JSON
+  ------------------------------ */
+  let projectsData = [];
+  
+  async function loadProjects() {
+    try {
+      const response = await fetch('./projects.json');
+      if (!response.ok) {
+        throw new Error('Failed to load projects');
+      }
+      projectsData = await response.json();
+      renderProjects();
+      initializeSlider();
+    } catch (error) {
+      console.error('Error loading projects:', error);
+      projectsContainer.innerHTML = '<p>Failed to load projects. Please try again later.</p>';
+    }
+  }
+
+  function renderProjects() {
+    const projectsContainer = document.querySelector(".projects-container");
+    if (!projectsContainer) return;
+
+    projectsContainer.innerHTML = projectsData.map(project => `
+      <div class="project-card">
+        <div class="project-image" style="background-color: #f5f5f5;">
+          <i class="${project.icon}"></i>
+        </div>
+        <div class="project-content">
+          <h3>${project.title}</h3>
+          <p>${project.description}</p>
+          <div class="project-tags">
+            ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
+          </div>
+          <a href="${project.link}" target="_blank" class="btn secondary small">View Project</a>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  /* -----------------------------
      PROJECT SLIDER
   ------------------------------ */
   const sliderWrapper = document.querySelector(".slider-wrapper");
@@ -179,14 +220,31 @@ document.addEventListener("DOMContentLoaded", function () {
   const dotsContainer = document.getElementById("sliderDots");
 
   let currentIndex = 0;
-  const cards = document.querySelectorAll(".project-card");
+  let cards = [];
   const GAP = 30;
   const CARD_WIDTH = 300;
 
   let projectsPerSlide = 1;
-  let totalSlides = Math.ceil(cards.length / projectsPerSlide);
+  let totalSlides = 0;
+
+  function initializeSlider() {
+    cards = document.querySelectorAll(".project-card");
+    totalSlides = Math.ceil(cards.length / projectsPerSlide);
+    calculateSlides();
+    updateSlider();
+    
+    // Re-initialize slider on window resize
+    window.addEventListener("resize", () => {
+      calculateSlides();
+      currentIndex = 0;
+      updateSlider();
+    });
+  }
 
   function calculateSlides() {
+    cards = document.querySelectorAll(".project-card");
+    if (cards.length === 0) return;
+    
     const sliderWidth = document.querySelector(".projects-slider").offsetWidth;
 
     projectsPerSlide = Math.floor((sliderWidth + GAP) / (CARD_WIDTH + GAP));
@@ -237,13 +295,8 @@ document.addEventListener("DOMContentLoaded", function () {
   if (leftArrow) leftArrow.addEventListener("click", prevSlide);
   if (rightArrow) rightArrow.addEventListener("click", nextSlide);
 
-  calculateSlides();
-  updateSlider();
-  window.addEventListener("resize", () => {
-    calculateSlides();
-    currentIndex = 0;
-    updateSlider();
-  });
+  // Load projects and initialize slider
+  loadProjects();
 
   /* -----------------------------
      LANGUAGE SWITCH
