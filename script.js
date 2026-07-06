@@ -170,22 +170,96 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* -----------------------------
-     LOAD PROJECTS FROM JSON
+     LOAD PROJECTS FROM GITHUB (CMS)
   ------------------------------ */
+  const GITHUB_USERNAME = "ahmedshekooo";
+  const GITHUB_REPOS_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`;
+  const DEFAULT_PROJECT_ICON = "fa-solid fa-diagram-project";
+  const SKELETON_COUNT = 3;
+
   let projectsData = [];
-  
-  async function loadProjects() {
+
+  // Turn "email_management_platform" into "Email Management Platform"
+  function formatRepoName(name) {
+    return name
+      .replace(/_/g, " ")
+      .split(" ")
+      .filter(Boolean)
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+  }
+
+  // Decode a base64 GitHub file payload (handles UTF-8 safely)
+  function decodeBase64Content(base64) {
     try {
-      const response = await fetch('./projects.json');
-      if (!response.ok) {
-        throw new Error('Failed to load projects');
-      }
-      projectsData = await response.json();
-      renderProjects();
-      initializeSlider();
-    } catch (error) {
-      console.error('Error loading projects:', error);
-      projectsContainer.innerHTML = '<p>Failed to load projects. Please try again later.</p>';
+      const binary = atob(base64.replace(/\n/g, ""));
+      const bytes = Uint8Array.from(binary, char => char.charCodeAt(0));
+      return new TextDecoder("utf-8").decode(bytes);
+    } catch (e) {
+      return "";
+    }
+  }
+
+  // Fetch a repo's README and pull the Font Awesome icon out of the FIRST LINE only.
+  // The first non-empty line of the README must itself be the icon comment, e.g.:
+  // <!-- <i class="fa-solid fa-mobile"></i> -->
+  async function getRepoIcon(repoName) {
+    try {
+      const res = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${repoName}/readme`);
+      if (!res.ok) return DEFAULT_PROJECT_ICON;
+
+      const data = await res.json();
+      const content = decodeBase64Content(data.content || "");
+
+      const firstLine = content.split(/\r?\n/).find(line => line.trim().length > 0) || "";
+
+      const iconMatch = firstLine.trim().match(/^<!--\s*<i\s+class=["']([a-zA-Z0-9\-\s]+?)["']\s*>\s*<\/i>\s*-->$/);
+      if (!iconMatch) return DEFAULT_PROJECT_ICON;
+
+      const iconClasses = iconMatch[1].trim();
+      return iconClasses || DEFAULT_PROJECT_ICON;
+    } catch (e) {
+      return DEFAULT_PROJECT_ICON;
+    }
+  }
+
+  function renderSkeletons() {
+    const projectsContainer = document.querySelector(".projects-container");
+    if (!projectsContainer) return;
+
+    projectsContainer.innerHTML = Array.from({ length: SKELETON_COUNT }).map(() => `
+      <div class="project-card skeleton-card">
+        <div class="project-image skeleton-shimmer"></div>
+        <div class="project-content">
+          <div class="skeleton-line skeleton-shimmer" style="width: 70%; height: 22px;"></div>
+          <div class="skeleton-line skeleton-shimmer" style="width: 100%; height: 14px; margin-top: 12px;"></div>
+          <div class="skeleton-line skeleton-shimmer" style="width: 90%; height: 14px;"></div>
+          <div class="skeleton-tags">
+            <span class="skeleton-tag skeleton-shimmer"></span>
+            <span class="skeleton-tag skeleton-shimmer"></span>
+            <span class="skeleton-tag skeleton-shimmer"></span>
+          </div>
+          <div class="skeleton-line skeleton-shimmer" style="width: 100%; height: 38px; margin-top: 15px;"></div>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  function renderErrorState() {
+    const projectsContainer = document.querySelector(".projects-container");
+    if (!projectsContainer) return;
+
+    projectsContainer.innerHTML = `
+      <div class="projects-error">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <p>We couldn't load the projects right now. Please try again.</p>
+        <button type="button" class="btn primary small" id="retryProjectsBtn">Retry</button>
+      </div>
+    `;
+
+    const retryBtn = document.getElementById("retryProjectsBtn");
+    if (retryBtn) {
+      retryBtn.addEventListener("click", loadProjects);
     }
   }
 
@@ -195,19 +269,62 @@ document.addEventListener("DOMContentLoaded", function () {
 
     projectsContainer.innerHTML = projectsData.map(project => `
       <div class="project-card">
-        <div class="project-image" style="background-color: #f5f5f5;">
+        <div class="project-image">
           <i class="${project.icon}"></i>
         </div>
         <div class="project-content">
           <h3>${project.title}</h3>
           <p>${project.description}</p>
+          ${project.tags.length ? `
           <div class="project-tags">
             ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
+          </div>` : ''}
+          <div class="project-buttons">
+            <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="btn secondary small">
+              <i class="fab fa-github"></i> View on GitHub
+            </a>
+            ${project.homepage ? `
+            <a href="${project.homepage}" target="_blank" rel="noopener noreferrer" class="btn primary small">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+            </a>` : ''}
           </div>
-          <a href="${project.link}" target="_blank" class="btn secondary small">View Project</a>
         </div>
       </div>
     `).join('');
+  }
+
+  async function loadProjects() {
+    renderSkeletons();
+
+    try {
+      const response = await fetch(GITHUB_REPOS_URL);
+      if (!response.ok) {
+        throw new Error('Failed to load repositories');
+      }
+
+      const repos = await response.json();
+      const publicNonForkedRepos = repos.filter(repo => !repo.fork);
+
+      // Fetch icons (README first HTML comment) for all repos in parallel
+      const icons = await Promise.all(
+        publicNonForkedRepos.map(repo => getRepoIcon(repo.name))
+      );
+
+      projectsData = publicNonForkedRepos.map((repo, index) => ({
+        title: formatRepoName(repo.name),
+        description: repo.description || "No description available.",
+        icon: icons[index],
+        tags: Array.isArray(repo.topics) ? repo.topics : [],
+        link: repo.html_url,
+        homepage: repo.homepage && repo.homepage.trim() ? repo.homepage.trim() : null
+      }));
+
+      renderProjects();
+      initializeSlider();
+    } catch (error) {
+      console.error('Error loading projects:', error);
+      renderErrorState();
+    }
   }
 
   /* -----------------------------
@@ -341,15 +458,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("projectsTitle").textContent = translations[lang].projects;
 
-    const cards = document.querySelectorAll(".project-card");
-    cards[0].querySelector("h3").textContent = translations[lang].customerSegmentation;
-    cards[0].querySelector("p").textContent = translations[lang].customerSegmentationDesc;
-
-    cards[1].querySelector("h3").textContent = translations[lang].salesForecasting;
-    cards[1].querySelector("p").textContent = translations[lang].salesForecastingDesc;
-
-    cards[2].querySelector("h3").textContent = translations[lang].sentimentAnalysis;
-    cards[2].querySelector("p").textContent = translations[lang].sentimentAnalysisDesc;
+    // Note: Project cards are now populated dynamically from GitHub repository
+    // data (name, description, topics), so they are not translated here.
 
     document.getElementById("contactDesc").textContent = translations[lang].contactDesc;
     document.getElementById("yourNameLabel").textContent = translations[lang].yourName;
